@@ -8,10 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var nicknameTextField: UITextField!
+    
+    @IBOutlet weak var changeButton: UIButton!
+    
+    @IBOutlet weak var resultLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        nicknameTextField.placeholder = NSLocalizedString("nickname_placeholder", comment: "")
+        
     }
 
 
