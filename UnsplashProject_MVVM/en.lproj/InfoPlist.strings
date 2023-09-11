@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  UnsplashProject_MVVM
+
+  Created by 염성필 on 2023/09/11.
+  
+*/
+
+// 앱 이름, 권한 다국어로 변경 가능
+
+"NSLocationWhenInUseUsageDescription" = "Location please.";
+
+"CFBundleDisplayName" = "SeSac";
