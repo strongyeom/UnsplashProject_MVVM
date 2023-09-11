@@ -10,5 +10,6 @@
 "nickname_placeholder" = "Enter Nickname";
 
 "nickname_result" = "My nickname is %@";
-
+// Int 일때 %d
+"age_result" = "I am %d years old";
 // 얼럿
