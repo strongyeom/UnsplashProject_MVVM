@@ -5,3 +5,7 @@
   Created by 염성필 on 2023/09/11.
   
 */
+
+"nickname_placeholder" = "닉네임을 입력해주세요";
+
+"nickname_result" = "당신의 닉네임은 %@, %@, %@입니다";

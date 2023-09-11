@@ -6,6 +6,9 @@
   
 */
 
+// 설정 탭
 "nickname_placeholder" = "Enter Nickname";
 
+"nickname_result" = "My nickname is %@";
 
+// 얼럿

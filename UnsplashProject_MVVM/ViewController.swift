@@ -20,6 +20,10 @@ class ViewController: UIViewController {
         
         nicknameTextField.placeholder = NSLocalizedString("nickname_placeholder", comment: "")
         
+        // String을 언어 설정별 하기 위한 변수 %@ 설정하고 
+        let value = NSLocalizedString("nickname_result", comment: "")
+        resultLabel.text = String(format: value, "고래밥","콩딱핑","다마고치")
+        
     }
 
 
