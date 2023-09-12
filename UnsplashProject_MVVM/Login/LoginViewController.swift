@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     
+    let viewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,28 @@ class LoginViewController: UIViewController {
         
         
         loginBtn.addTarget(self, action: #selector(loginBtnClicked(_:)), for: .touchUpInside)
-     
+        idTextField.addTarget(self, action: #selector(idTextFieldChanged), for: .editingChanged)
+        viewModel.id.bind { text in
+            print("====Bind \(text)")
+            self.idTextField.text = text
+        }
+        
+        viewModel.pw.bind { text in
+            print("====pw Bind \(text)")
+            self.pwTextField.text = text
+        }
+        
+        viewModel.isVaild.bind { isValid in
+            self.loginBtn.isEnabled = isValid
+            self.loginBtn.backgroundColor = isValid ? .green : .lightGray
+        }
+    }
+    
+    @objc func idTextFieldChanged() {
+       
+        viewModel.id.value = idTextField.text!
+        viewModel.pw.value = pwTextField.text!
+        viewModel.checkVaildation()
     }
     
     @objc func loginBtnClicked(_ sender: UIButton) {

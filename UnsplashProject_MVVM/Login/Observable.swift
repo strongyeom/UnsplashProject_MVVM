@@ -7,22 +7,22 @@
 
 import Foundation
 
-class Observable {
+class Observable<T> {
     
-    private var listener: ((Int) -> Void)?
+    private var listener: ((T) -> Void)?
     
-    var value: Int {
+    var value: T {
         // 바뀔때마다 신호를 감지 할 수 있음
         didSet {
             listener?(value)
         }
     }
     
-    init(value: Int) {
+    init(_ value: T) {
         self.value = value
     }
     
-    func bind(_ closure: @escaping (Int) -> Void) {
+    func bind(_ closure: @escaping (T) -> Void) {
         print(#function)
         closure(value)
         listener = closure

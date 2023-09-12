@@ -20,6 +20,7 @@
 		26F9354C2AAFF2FE005EAAC9 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F9354B2AAFF2FE005EAAC9 /* Observable.swift */; };
 		26F9354E2AAFFDEA005EAAC9 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F9354D2AAFFDEA005EAAC9 /* SampleViewController.swift */; };
 		26F935502AB0015A005EAAC9 /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F9354F2AB0015A005EAAC9 /* SampleViewModel.swift */; };
+		26F935522AB00E43005EAAC9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F935512AB00E43005EAAC9 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		26F9354B2AAFF2FE005EAAC9 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		26F9354D2AAFFDEA005EAAC9 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		26F9354F2AB0015A005EAAC9 /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
+		26F935512AB00E43005EAAC9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				26F935492AAFED66005EAAC9 /* LoginViewController.swift */,
 				26F9354B2AAFF2FE005EAAC9 /* Observable.swift */,
 				26F9354D2AAFFDEA005EAAC9 /* SampleViewController.swift */,
+				26F935512AB00E43005EAAC9 /* LoginViewModel.swift */,
 				26F9354F2AB0015A005EAAC9 /* SampleViewModel.swift */,
 			);
 			path = Login;
@@ -188,6 +191,7 @@
 				26F237592AAE993700D9B137 /* SceneDelegate.swift in Sources */,
 				26F935502AB0015A005EAAC9 /* SampleViewModel.swift in Sources */,
 				26F9354E2AAFFDEA005EAAC9 /* SampleViewController.swift in Sources */,
+				26F935522AB00E43005EAAC9 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
