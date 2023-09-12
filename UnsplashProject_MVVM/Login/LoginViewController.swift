@@ -22,13 +22,16 @@ class LoginViewController: UIViewController {
         
         loginBtn.addTarget(self, action: #selector(loginBtnClicked(_:)), for: .touchUpInside)
         idTextField.addTarget(self, action: #selector(idTextFieldChanged), for: .editingChanged)
+        pwTextField.addTarget(self, action: #selector(pwTextFieldChanged), for: .editingChanged)
+        
+        
         viewModel.id.bind { text in
-            print("====Bind \(text)")
+            print("====ID Bind \(text)")
             self.idTextField.text = text
         }
         
         viewModel.pw.bind { text in
-            print("====pw Bind \(text)")
+            print("====PW Bind \(text)")
             self.pwTextField.text = text
         }
         
@@ -38,22 +41,25 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @objc func idTextFieldChanged() {
+    @objc func pwTextFieldChanged() {
        
-        viewModel.id.value = idTextField.text!
         viewModel.pw.value = pwTextField.text!
+
+        viewModel.checkVaildation()
+    }
+    
+    @objc func idTextFieldChanged() {
+        viewModel.id.value = idTextField.text!
+        
         viewModel.checkVaildation()
     }
     
     @objc func loginBtnClicked(_ sender: UIButton) {
-        // 텍스트 필드 유효성 검사
-        guard let id = idTextField.text else { return }
-        guard let pw = pwTextField.text else { return }
-        
-        if id.count >= 6 && pw == "1234" {
-            print("로그인했어요")
-        } else {
-            print("로그인 실패")
+        // 어차피 isVaild가 false이면 isEnabled도 false이기 때문에 사용하지 못함
+        // 유효성 검증을 통과했을경우에만 isEnabled == true가 되기 때문에 분기처리 안해줘도 됨
+       
+        viewModel.signIn {
+            print("로그인 성공했습니다.")
         }
     }
 

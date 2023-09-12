@@ -21,4 +21,10 @@ class LoginViewModel {
         }
     }
     
+    func signIn(completionHandler: @escaping () -> Void) {
+        // 서버, 닉네임, id
+        UserDefaults.standard.set(id.value, forKey: "id")
+        completionHandler()
+    }
+    
 }
