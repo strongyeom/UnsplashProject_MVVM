@@ -24,6 +24,36 @@ class SampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // 단방향과 양방향 예시 코드
+        var number1 = 10
+        var number2 = 3
+        
+        print(number1 - number2)
+        
+        number1 = 3
+        number2 = 1
+        
+        //
+        
+        var number3 = Observable(value: 10)
+        var number4 = Observable(value: 3)
+        
+        number3.bind { number in
+            print("Observable", number3.value - number4.value)
+        }
+        
+        number3.value = 100
+        number3.value = 500
+        number3.value = 50
+        
+        
+        
+        
+        
+        
+        
 
         tableView.delegate = self
         tableView.dataSource = self

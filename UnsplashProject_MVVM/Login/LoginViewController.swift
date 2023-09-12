@@ -16,17 +16,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 인스턴스를 생성할때 선언과 초기화가 되어 있어야함 
-        let sample = Observable(value: "보리밥")
+      
         
-        sample.bind { text in
-            print("bind 구문", text)
-        }
-        
-        
-        sample.value = "밥밥밥"
-        
-        sample.value = "콩보리밥"
         
         loginBtn.addTarget(self, action: #selector(loginBtnClicked(_:)), for: .touchUpInside)
      
