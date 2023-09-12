@@ -11,6 +11,7 @@ class LoginViewModel {
     
     var id = Observable("")
     var pw = Observable("")
+    
     var isVaild = Observable(false)
     
     func checkVaildation() {

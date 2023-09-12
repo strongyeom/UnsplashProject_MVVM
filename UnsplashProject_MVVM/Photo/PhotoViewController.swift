@@ -17,7 +17,7 @@ class PhotoViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.rowHeight = 80
         viewModel.callRequest()
         
         viewModel.list.bind { _ in
@@ -35,11 +35,24 @@ extension PhotoViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "photoCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
         
-        
+//        cell.imageView?.image = UIImage(systemName: "flame")
         let data = viewModel.cellForRowAt(indexPath: indexPath)
-        cell.backgroundColor = .lightGray
+        
+        let unsplashurl = URL(string: data.urls.thumb)!
+        // 비동기로 작업
+        DispatchQueue.global().async {
+            // 이미지 주소 Data화 시키기
+            let data = try! Data(contentsOf: unsplashurl)
+            
+            // Main Thread에서 그려주기
+            DispatchQueue.main.async {
+                // 데이터 통신 해서 image에 넣기
+                cell.photoImage.image = UIImage(data: data)
+                print("**\(indexPath.row)")
+            }
+        }
         return cell
     }
     

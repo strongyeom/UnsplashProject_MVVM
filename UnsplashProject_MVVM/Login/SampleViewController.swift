@@ -40,12 +40,14 @@ class SampleViewController: UIViewController {
         var number3 = Observable(10)
         var number4 = Observable(3)
         // 변화되었으면 기능을 해라
+        number3.value = 100
+        
         number3.bind { number in
             print("Observable", number3.value - number4.value)
             
         }
         
-        number3.value = 100
+       
         number3.value = 500
         number3.value = 50
         

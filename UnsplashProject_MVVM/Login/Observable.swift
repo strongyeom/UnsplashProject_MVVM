@@ -26,5 +26,7 @@ class Observable<T> {
         print(#function)
         closure(value)
         listener = closure
+       
     }
+    
 }

@@ -25,5 +25,5 @@ class PhotoViewModel {
     func cellForRowAt(indexPath: IndexPath) -> PhotoResult {
         return list.value.results![indexPath.row]
     }
-    
+
 }

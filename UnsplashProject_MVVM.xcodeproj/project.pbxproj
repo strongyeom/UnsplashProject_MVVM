@@ -25,6 +25,7 @@
 		26F935572AB02A5D005EAAC9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F935562AB02A5D005EAAC9 /* APIService.swift */; };
 		26F935592AB02B5C005EAAC9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F935582AB02B5C005EAAC9 /* PhotoViewController.swift */; };
 		26F9355D2AB02DAA005EAAC9 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F9355C2AB02DAA005EAAC9 /* PhotoViewModel.swift */; };
+		26F935812AB0699D005EAAC9 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F935802AB0699D005EAAC9 /* PhotoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		26F935562AB02A5D005EAAC9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		26F935582AB02B5C005EAAC9 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		26F9355C2AB02DAA005EAAC9 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		26F935802AB0699D005EAAC9 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				26F935562AB02A5D005EAAC9 /* APIService.swift */,
 				26F935582AB02B5C005EAAC9 /* PhotoViewController.swift */,
 				26F9355C2AB02DAA005EAAC9 /* PhotoViewModel.swift */,
+				26F935802AB0699D005EAAC9 /* PhotoTableViewCell.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F935812AB0699D005EAAC9 /* PhotoTableViewCell.swift in Sources */,
 				26F2375B2AAE993700D9B137 /* ViewController.swift in Sources */,
 				26F237572AAE993700D9B137 /* AppDelegate.swift in Sources */,
 				26F237782AAEBAB100D9B137 /* String+Ext.swift in Sources */,
