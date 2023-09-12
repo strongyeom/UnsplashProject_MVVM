@@ -42,6 +42,7 @@ class SampleViewController: UIViewController {
         // 변화되었으면 기능을 해라
         number3.bind { number in
             print("Observable", number3.value - number4.value)
+            
         }
         
         number3.value = 100

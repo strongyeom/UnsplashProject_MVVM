@@ -14,7 +14,7 @@ class LoginViewModel {
     var isVaild = Observable(false)
     
     func checkVaildation() {
-        if id.value.count >= 6 {
+        if id.value.count >= 6 && pw.value.count >= 4 {
             isVaild.value = true
         } else {
             isVaild.value = false
