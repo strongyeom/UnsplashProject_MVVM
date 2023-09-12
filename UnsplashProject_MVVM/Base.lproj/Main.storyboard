@@ -82,7 +82,7 @@
         <!--로그인-->
         <scene sceneID="HJX-7D-d72">
             <objects>
-                <viewController id="8fx-Lp-5iI" sceneMemberID="viewController">
+                <viewController id="8fx-Lp-5iI" customClass="LoginViewController" customModule="UnsplashProject_MVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gzG-12-OUG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,6 +133,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="로그인" id="LIV-a4-XDB"/>
+                    <connections>
+                        <outlet property="idTextField" destination="dh0-iW-CM9" id="JhQ-IN-e4K"/>
+                        <outlet property="loginBtn" destination="C7m-KC-lxc" id="MI6-3T-zJd"/>
+                        <outlet property="pwTextField" destination="FfO-y1-VW8" id="SAT-s0-Lqm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x4c-SV-Lfp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -144,6 +149,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="cin-Ci-Tbo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BBh-cP-GRi">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
