@@ -72,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				26F237562AAE993700D9B137 /* AppDelegate.swift */,
+				26F935482AAFED3A005EAAC9 /* New Group */,
 				26F237582AAE993700D9B137 /* SceneDelegate.swift */,
 				26F2375A2AAE993700D9B137 /* ViewController.swift */,
 				26F2375C2AAE993700D9B137 /* Main.storyboard */,
@@ -83,6 +84,13 @@
 				26F2377D2AAEBDCE00D9B137 /* InfoPlist.strings */,
 			);
 			path = UnsplashProject_MVVM;
+			sourceTree = "<group>";
+		};
+		26F935482AAFED3A005EAAC9 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
