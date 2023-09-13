@@ -23,13 +23,27 @@ class CalculateViewController: UIViewController {
         firstTextFiled.text =  viewModel.firstNumber.value
         secondTextFiled.text =  viewModel.secondNumber.value
      
-        let person = Person(name: "Jack")
+        let person = Person("Jack")
         
         person.name = "Jack 1"
         
         person.name = "Jack 2"
         
         person.name = "Jack 3"
+        
+        person.introduce(Int.random(in: 1...10)) {
+            self.view.backgroundColor = [UIColor.orange, UIColor.lightGray, UIColor.magenta].randomElement()!
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            person.name = "바나나 1초뒤 Jack"
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            person.name = "바나나 2초뒤 Jack"
+        }
+        
+       
         
     }
 
