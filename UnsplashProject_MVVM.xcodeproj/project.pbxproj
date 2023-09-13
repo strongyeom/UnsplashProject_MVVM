@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26EDB34D2AB139E700964C9C /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB34C2AB139E700964C9C /* CalculateViewController.swift */; };
+		26EDB34F2AB13AB000964C9C /* CalculateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB34E2AB13AB000964C9C /* CalculateViewModel.swift */; };
+		26EDB3512AB13DA700964C9C /* JackObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB3502AB13DA700964C9C /* JackObservable.swift */; };
 		26F237572AAE993700D9B137 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F237562AAE993700D9B137 /* AppDelegate.swift */; };
 		26F237592AAE993700D9B137 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F237582AAE993700D9B137 /* SceneDelegate.swift */; };
 		26F2375B2AAE993700D9B137 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F2375A2AAE993700D9B137 /* ViewController.swift */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26EDB34C2AB139E700964C9C /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
+		26EDB34E2AB13AB000964C9C /* CalculateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewModel.swift; sourceTree = "<group>"; };
+		26EDB3502AB13DA700964C9C /* JackObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackObservable.swift; sourceTree = "<group>"; };
 		26F237532AAE993700D9B137 /* UnsplashProject_MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnsplashProject_MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F237562AAE993700D9B137 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26F237582AAE993700D9B137 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +78,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26EDB34B2AB139B500964C9C /* Calculate */ = {
+			isa = PBXGroup;
+			children = (
+				26EDB34C2AB139E700964C9C /* CalculateViewController.swift */,
+				26EDB34E2AB13AB000964C9C /* CalculateViewModel.swift */,
+				26EDB3502AB13DA700964C9C /* JackObservable.swift */,
+			);
+			path = Calculate;
+			sourceTree = "<group>";
+		};
 		26F2374A2AAE993700D9B137 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +109,7 @@
 			children = (
 				26F237562AAE993700D9B137 /* AppDelegate.swift */,
 				26F237582AAE993700D9B137 /* SceneDelegate.swift */,
+				26EDB34B2AB139B500964C9C /* Calculate */,
 				26F935532AB02A40005EAAC9 /* Photo */,
 				26F935482AAFED3A005EAAC9 /* Login */,
 				26F2375A2AAE993700D9B137 /* ViewController.swift */,
@@ -111,9 +128,9 @@
 			isa = PBXGroup;
 			children = (
 				26F935492AAFED66005EAAC9 /* LoginViewController.swift */,
+				26F935512AB00E43005EAAC9 /* LoginViewModel.swift */,
 				26F9354B2AAFF2FE005EAAC9 /* Observable.swift */,
 				26F9354D2AAFFDEA005EAAC9 /* SampleViewController.swift */,
-				26F935512AB00E43005EAAC9 /* LoginViewModel.swift */,
 				26F9354F2AB0015A005EAAC9 /* SampleViewModel.swift */,
 			);
 			path = Login;
@@ -214,10 +231,13 @@
 				26F935572AB02A5D005EAAC9 /* APIService.swift in Sources */,
 				26F935592AB02B5C005EAAC9 /* PhotoViewController.swift in Sources */,
 				26F935552AB02A4C005EAAC9 /* Photo.swift in Sources */,
+				26EDB34D2AB139E700964C9C /* CalculateViewController.swift in Sources */,
 				26F9354C2AAFF2FE005EAAC9 /* Observable.swift in Sources */,
+				26EDB3512AB13DA700964C9C /* JackObservable.swift in Sources */,
 				26F237592AAE993700D9B137 /* SceneDelegate.swift in Sources */,
 				26F935502AB0015A005EAAC9 /* SampleViewModel.swift in Sources */,
 				26F9355D2AB02DAA005EAAC9 /* PhotoViewModel.swift in Sources */,
+				26EDB34F2AB13AB000964C9C /* CalculateViewModel.swift in Sources */,
 				26F9354E2AAFFDEA005EAAC9 /* SampleViewController.swift in Sources */,
 				26F935522AB00E43005EAAC9 /* LoginViewModel.swift in Sources */,
 			);
