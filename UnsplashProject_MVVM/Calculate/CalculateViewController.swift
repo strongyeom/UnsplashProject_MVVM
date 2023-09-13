@@ -23,8 +23,13 @@ class CalculateViewController: UIViewController {
         firstTextFiled.text =  viewModel.firstNumber.value
         secondTextFiled.text =  viewModel.secondNumber.value
      
+        let person = Person(name: "Jack")
         
+        person.name = "Jack 1"
         
+        person.name = "Jack 2"
+        
+        person.name = "Jack 3"
         
     }
 
