@@ -31,8 +31,9 @@ class CalculateViewController: UIViewController {
         
         person.name = "Jack 3"
         
-        person.introduce(Int.random(in: 1...10)) {
-            self.view.backgroundColor = [UIColor.orange, UIColor.lightGray, UIColor.magenta].randomElement()!
+        person.introduce { value in
+            self.resultLabel.text = value
+            self.view.backgroundColor = [UIColor.yellow, UIColor.systemMint, UIColor.green].randomElement()!
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -41,6 +42,14 @@ class CalculateViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             person.name = "바나나 2초뒤 Jack"
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            person.name = "바나나 3초뒤 Jack"
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            person.name = "바나나 4초뒤 Jack"
         }
         
        
