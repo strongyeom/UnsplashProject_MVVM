@@ -126,6 +126,12 @@
                                     <action selector="firstTextField:" destination="WPO-ef-WWT" eventType="editingDidEnd" id="s5e-kh-Qlv"/>
                                 </connections>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojz-pQ-Kw9">
+                                <rect key="frame" x="216" y="250" width="95" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSg-fg-Phr">
                                 <rect key="frame" x="54" y="324" width="257" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -133,12 +139,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojz-pQ-Kw9">
-                                <rect key="frame" x="216" y="250" width="95" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKn-Jb-rRx">
+                                <rect key="frame" x="54" y="464" width="257" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oQe-s5-1GB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -147,6 +154,7 @@
                         <outlet property="firstTextFiled" destination="S1P-iS-xs1" id="cFr-C1-iyE"/>
                         <outlet property="resultLabel" destination="lSg-fg-Phr" id="VUg-IO-yEF"/>
                         <outlet property="secondTextFiled" destination="ojz-pQ-Kw9" id="JHs-dl-VNf"/>
+                        <outlet property="tempLabel" destination="mKn-Jb-rRx" id="Vdn-cQ-lty"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPf-Vw-YzR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
