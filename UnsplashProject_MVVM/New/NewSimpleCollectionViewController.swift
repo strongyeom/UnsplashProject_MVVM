@@ -42,9 +42,28 @@ class NewSimpleCollectionViewController: UIViewController {
             // systemCell 불러오기
             var content = UIListContentConfiguration.valueCell()
             content.text = itemIdentifier.username
+            // textProperties: text UI 속성 설정
+            content.textProperties.color = .brown
             content.secondaryText = "\(itemIdentifier.age)"
             content.image = UIImage(systemName: "flame")
+            content.imageProperties.tintColor = .yellow
+            // prefersSideBySideTextAndSecondaryText : 타이틀과 서브타이틀 세로 라인으로 정렬
+            content.prefersSideBySideTextAndSecondaryText = false
+            // textToSecondaryTextVerticalPadding : 타이틀과 서브타이틀 사이의 padding 설정
+            content.textToSecondaryTextVerticalPadding = 20
             cell.contentConfiguration = content
+            
+            
+            // Cell 자체의 background 설정을 바꿀 수 있음 
+            var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
+            backgroundConfig.backgroundColor = .lightGray
+            backgroundConfig.cornerRadius = 10
+            backgroundConfig.strokeWidth = 2
+            backgroundConfig.strokeColor = .systemPink
+            cell.backgroundConfiguration = backgroundConfig
+            
+            
+            
         }
         
         
@@ -55,6 +74,10 @@ class NewSimpleCollectionViewController: UIViewController {
     static func createLayout() -> UICollectionViewLayout {
         // ListConfiguration을 사용해서 Cell Layout 설정
         var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        // separator 안보이게 하기
+        configuration.showsSeparators = false
+        // collectionView backgroundColor 설정
+        configuration.backgroundColor = .systemGreen
         // List 형식으로 configuration을 만들어줘
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         return layout
