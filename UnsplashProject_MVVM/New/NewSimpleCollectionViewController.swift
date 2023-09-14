@@ -18,8 +18,10 @@ class NewSimpleCollectionViewController: UIViewController {
     User(username: "코코", age: 20),
     ]
     
+    // 1️⃣
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     // cellforRowAt에서 사용하기 위해 변수 설정
+    // 3️⃣
     var cellResisteration: UICollectionView.CellRegistration<UICollectionViewListCell, User>!
     
     override func viewDidLoad() {
@@ -33,7 +35,7 @@ class NewSimpleCollectionViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         
-        // UICollectionView.CellRegistration<Cell, Item> : Cell을 등록할 수 있는 방법 iOS 14.0 이상
+        // 5️⃣ UICollectionView.CellRegistration<Cell, Item> : Cell을 등록할 수 있는 방법 iOS 14.0 이상
         // identifier, xib register 사용 X, 대신에 제네릭을 이용 셀이 생성될 때마다 클로저가 호출
         cellResisteration =  UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
             // cell에 대한 디자인 및 데이터처리 이뤄짐
@@ -49,7 +51,7 @@ class NewSimpleCollectionViewController: UIViewController {
    
     }
     
-    // collectionView 시점으로 인해 static 설정해야함
+    // 2️⃣ collectionView 시점으로 인해 static 설정해야함
     static func createLayout() -> UICollectionViewLayout {
         // ListConfiguration을 사용해서 Cell Layout 설정
         var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
@@ -67,7 +69,7 @@ extension NewSimpleCollectionViewController: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // using: UICollectionView.CellRegistration<Cell, Item> : cell.label, cell. ~ 여기서 설정
+        // 4️⃣ using: UICollectionView.CellRegistration<Cell, Item> : cell.label, cell. ~ 여기서 설정
         let cell = collectionView.dequeueConfiguredReusableCell(using: cellResisteration, for: indexPath, item: list[indexPath.item])
         return cell
     }
