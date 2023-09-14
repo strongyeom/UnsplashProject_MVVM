@@ -70,9 +70,19 @@ extension SampleViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sampleCell")!
-        let data = viewModel.cellForRowAt(indexPath: indexPath)
-        cell.textla
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "sampleCell")!
+//        let data = viewModel.cellForRowAt(indexPath: indexPath)
+//        cell.textla
+        
+        let cell = UITableViewCell()
+        var content = cell.defaultContentConfiguration()
+        content.text = "테스트" // textLabel
+        content.secondaryText = "안녕하세여 \(indexPath.row)" // detailTextLabel
+        
+        
+        // 타입이 다른데 어떻게 넣을수 있지 ?
+        // UIListContentConfiguration에 프로토콜로 UIContentConfiguration이 채택되어 있음
+        cell.contentConfiguration = content // Protocoal as Type
         
         return cell
     }
