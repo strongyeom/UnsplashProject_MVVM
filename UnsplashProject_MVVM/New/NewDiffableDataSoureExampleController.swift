@@ -10,36 +10,20 @@ import SnapKit
 
 class NewDiffableDataSoureExampleController: UIViewController {
     
+    let newPhotoViewModel = NewPhotoViewModel()
+    
     enum Section: Int,CaseIterable {
         case first = 2000
-        case second = 1
     }
     
     
-    // 모델의 값중 하나만 다르면 런타임 에러 발생하지 않음 but 완전히 똑같으면 런타임 에러 발생 -> UUID 만들어주기
-    let list: [[User]] = [
-    [User(username: "첫번째 섹션에 일번", age: 23, height: 100),
-    User(username: "첫번째 섹션에 이번", age: 23, height: 100),
-    User(username: "첫번째 섹션에 삼번", age: 26, height: 200),
-    User(username: "첫번째 섹션에 사번", age: 20, height: 250)],
-    [User(username: "두번째222 섹션에 일번", age: 23, height: 100),
-    User(username: "두번째222 섹션에 이번", age: 23, height: 100),
-    User(username: "두번째222 섹션에 삼번", age: 26, height: 200),
-    User(username: "두번째222 섹션에 사번", age: 20, height: 250)]
-    ]
-
     let customCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
     
     
-    var cellResisteration: UICollectionView.CellRegistration<UICollectionViewCell, User>!
+    var cellResisteration: UICollectionView.CellRegistration<UICollectionViewCell, PhotoResult>!
     
     // 1️⃣ dataSource 생성
-    var dataSource: UICollectionViewDiffableDataSource<Section,User>!
-    
-    
-
-    
-
+    var dataSource: UICollectionViewDiffableDataSource<Section,PhotoResult>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,49 +36,50 @@ class NewDiffableDataSoureExampleController: UIViewController {
         
 
         
+        newPhotoViewModel.list.bind { _ in
+            DispatchQueue.main.async {
+                self.dataSourceApply()
+            }
+        }
+        
+        newPhotoViewModel.callRequest(query: "sky")
         
         configureView()
-
-        
         dataSourceApply()
-        
-   
+
+
          
     }
     
 
     
-    fileprivate func configureView() {
+    func configureView() {
         // 여기서 Cell에 Model에 해당되는 것이 할당된다.
         cellResisteration = UICollectionView.CellRegistration(handler: { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.valueCell()
             
-            content.text = itemIdentifier.introduce
-            content.secondaryText = "\(itemIdentifier.age)"
-            content.textProperties.color = .green
-            content.textProperties.font = .systemFont(ofSize: 20, weight: .medium)
-            content.secondaryTextProperties.color = .red
-            content.prefersSideBySideTextAndSecondaryText = false
-            
+            content.text = itemIdentifier.description
+            content.secondaryText = itemIdentifier.id
+            print(content.secondaryText)
             cell.contentConfiguration = content
             
         })
         
         // 2️⃣ dataSource에 등록되고 Model데이터 적용된 Cell 보여주기
         dataSource = UICollectionViewDiffableDataSource(collectionView: customCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            
+
             let cell = collectionView.dequeueConfiguredReusableCell(using: self.cellResisteration, for: indexPath, item: itemIdentifier)
             return cell
         })
     }
     
-    fileprivate func dataSourceApply() {
+    func dataSourceApply() {
         // 3️⃣ apply 통해 갱신하기
         // 할당된 데이터를 snapShot에 담아준다.
-        var snapShot = NSDiffableDataSourceSnapshot<Section, User>()
+        var snapShot = NSDiffableDataSourceSnapshot<Section, PhotoResult>()
         snapShot.appendSections(Section.allCases)
-        snapShot.appendItems(list[0], toSection: Section.second)
-        snapShot.appendItems(list[1], toSection: Section.first)
+        
+        snapShot.appendItems(newPhotoViewModel.list.value.results!, toSection: Section.first)
         // snapShot에 담아준 것을 리로드 시킨다.
         dataSource.apply(snapShot)
     }
@@ -108,3 +93,16 @@ class NewDiffableDataSoureExampleController: UIViewController {
     }
 
 }
+
+//extension NewDiffableDataSoureExampleController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        print("numberof : \(newPhotoViewModel.list.value.results?.count)")
+//        return newPhotoViewModel.list.value.results?.count ?? 0
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let data = newPhotoViewModel.list.value.results?[indexPath.item]
+//        let cell = collectionView.dequeueConfiguredReusableCell(using: self.cellResisteration, for: indexPath, item: data!)
+//            return cell
+//    }
+//}

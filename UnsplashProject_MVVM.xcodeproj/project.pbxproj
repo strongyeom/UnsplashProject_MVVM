@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		26218E4D2AB296FA00EC41D9 /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26218E4C2AB296FA00EC41D9 /* SimpleTableViewController.swift */; };
 		266146272AB2A02200C93E4B /* NewSimpleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266146262AB2A02200C93E4B /* NewSimpleCollectionViewController.swift */; };
-		2661462A2AB2A9CF00C93E4B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 266146292AB2A9CF00C93E4B /* SnapKit */; };
 		26E9B3A52AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9B3A42AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift */; };
 		26E9B3A82AB4355B00F2DA85 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9B3A72AB4355B00F2DA85 /* User.swift */; };
+		26E9B3AF2AB43F5100F2DA85 /* NewPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9B3AE2AB43F5100F2DA85 /* NewPhotoViewModel.swift */; };
+		26E9B3B22AB4456B00F2DA85 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 26E9B3B12AB4456B00F2DA85 /* SnapKit */; };
 		26EDB34D2AB139E700964C9C /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB34C2AB139E700964C9C /* CalculateViewController.swift */; };
 		26EDB34F2AB13AB000964C9C /* CalculateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB34E2AB13AB000964C9C /* CalculateViewModel.swift */; };
 		26EDB3512AB13DA700964C9C /* JackObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB3502AB13DA700964C9C /* JackObservable.swift */; };
@@ -41,6 +42,7 @@
 		266146262AB2A02200C93E4B /* NewSimpleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSimpleCollectionViewController.swift; sourceTree = "<group>"; };
 		26E9B3A42AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiffableDataSoureExampleController.swift; sourceTree = "<group>"; };
 		26E9B3A72AB4355B00F2DA85 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		26E9B3AE2AB43F5100F2DA85 /* NewPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhotoViewModel.swift; sourceTree = "<group>"; };
 		26EDB34C2AB139E700964C9C /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		26EDB34E2AB13AB000964C9C /* CalculateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewModel.swift; sourceTree = "<group>"; };
 		26EDB3502AB13DA700964C9C /* JackObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackObservable.swift; sourceTree = "<group>"; };
@@ -81,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2661462A2AB2A9CF00C93E4B /* SnapKit in Frameworks */,
+				26E9B3B22AB4456B00F2DA85 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +96,7 @@
 				26218E4C2AB296FA00EC41D9 /* SimpleTableViewController.swift */,
 				266146262AB2A02200C93E4B /* NewSimpleCollectionViewController.swift */,
 				26E9B3A42AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift */,
+				26E9B3AE2AB43F5100F2DA85 /* NewPhotoViewModel.swift */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -195,7 +198,7 @@
 			);
 			name = UnsplashProject_MVVM;
 			packageProductDependencies = (
-				266146292AB2A9CF00C93E4B /* SnapKit */,
+				26E9B3B12AB4456B00F2DA85 /* SnapKit */,
 			);
 			productName = UnsplashProject_MVVM;
 			productReference = 26F237532AAE993700D9B137 /* UnsplashProject_MVVM.app */;
@@ -228,7 +231,7 @@
 			);
 			mainGroup = 26F2374A2AAE993700D9B137;
 			packageReferences = (
-				266146282AB2A9CF00C93E4B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				26E9B3B02AB4456B00F2DA85 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 26F237542AAE993700D9B137 /* Products */;
 			projectDirPath = "";
@@ -265,6 +268,7 @@
 				26F237782AAEBAB100D9B137 /* String+Ext.swift in Sources */,
 				26F9354A2AAFED66005EAAC9 /* LoginViewController.swift in Sources */,
 				26F935572AB02A5D005EAAC9 /* APIService.swift in Sources */,
+				26E9B3AF2AB43F5100F2DA85 /* NewPhotoViewModel.swift in Sources */,
 				26F935592AB02B5C005EAAC9 /* PhotoViewController.swift in Sources */,
 				26F935552AB02A4C005EAAC9 /* Photo.swift in Sources */,
 				266146272AB2A02200C93E4B /* NewSimpleCollectionViewController.swift in Sources */,
@@ -455,6 +459,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnsplashProject_MVVM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -482,6 +488,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnsplashProject_MVVM/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -524,7 +532,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		266146282AB2A9CF00C93E4B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		26E9B3B02AB4456B00F2DA85 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -535,9 +543,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		266146292AB2A9CF00C93E4B /* SnapKit */ = {
+		26E9B3B12AB4456B00F2DA85 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 266146282AB2A9CF00C93E4B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 26E9B3B02AB4456B00F2DA85 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
