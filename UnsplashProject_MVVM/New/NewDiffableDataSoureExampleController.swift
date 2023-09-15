@@ -24,16 +24,22 @@ class NewDiffableDataSoureExampleController: UIViewController {
     
     var cellResisteration: UICollectionView.CellRegistration<UICollectionViewCell, User>!
     
+    var dataSource: UICollectionViewDiffableDataSource<Int,User>!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(customCollectionView)
-        customCollectionView.delegate = self
-        customCollectionView.dataSource = self
+        // customCollectionView.dataSource = self
         
         customCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
+
+        
+        
+        // 여기서 Cell에 Model에 해당되는 것이 할당된다.
         cellResisteration = UICollectionView.CellRegistration(handler: { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.valueCell()
             
@@ -47,14 +53,31 @@ class NewDiffableDataSoureExampleController: UIViewController {
             cell.contentConfiguration = content
             
         })
+        
+        dataSource = UICollectionViewDiffableDataSource(collectionView: customCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            
+            let cell = collectionView.dequeueConfiguredReusableCell(using: self.cellResisteration, for: indexPath, item: itemIdentifier)
+            return cell
+        })
+        
+        // 할당된 데이터를 snapShot에 담아준다.
+        var snapShot = NSDiffableDataSourceSnapshot<Int, User>()
+        snapShot.appendSections([0])
+        snapShot.appendItems(list)
+        
+        // snapShot에 담아준 것을 리로드 시킨다.
+        dataSource.apply(snapShot)
+        
          
     }
+    
     
     static func layout() -> UICollectionViewLayout {
         let configure = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let layout = UICollectionViewCompositionalLayout.list(using: configure)
         return layout
     }
+
     
     
     
@@ -62,14 +85,15 @@ class NewDiffableDataSoureExampleController: UIViewController {
     
     
 }
-extension NewDiffableDataSoureExampleController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let data = list[indexPath.item]
-        let cell = collectionView.dequeueConfiguredReusableCell(using: self.cellResisteration, for: indexPath, item: data)
-        return cell
-    }
-}
+
+//extension NewDiffableDataSoureExampleController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return list.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let data = list[indexPath.item]
+//        let cell = collectionView.dequeueConfiguredReusableCell(using: self.cellResisteration, for: indexPath, item: data)
+//        return cell
+//    }
+//}
