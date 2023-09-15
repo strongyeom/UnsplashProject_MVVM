@@ -10,6 +10,7 @@
 		26218E4D2AB296FA00EC41D9 /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26218E4C2AB296FA00EC41D9 /* SimpleTableViewController.swift */; };
 		266146272AB2A02200C93E4B /* NewSimpleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266146262AB2A02200C93E4B /* NewSimpleCollectionViewController.swift */; };
 		2661462A2AB2A9CF00C93E4B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 266146292AB2A9CF00C93E4B /* SnapKit */; };
+		26E9B3A52AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9B3A42AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift */; };
 		26EDB34D2AB139E700964C9C /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB34C2AB139E700964C9C /* CalculateViewController.swift */; };
 		26EDB34F2AB13AB000964C9C /* CalculateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB34E2AB13AB000964C9C /* CalculateViewModel.swift */; };
 		26EDB3512AB13DA700964C9C /* JackObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB3502AB13DA700964C9C /* JackObservable.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		26218E4C2AB296FA00EC41D9 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 		266146262AB2A02200C93E4B /* NewSimpleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSimpleCollectionViewController.swift; sourceTree = "<group>"; };
+		26E9B3A42AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiffableDataSoureExampleController.swift; sourceTree = "<group>"; };
 		26EDB34C2AB139E700964C9C /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		26EDB34E2AB13AB000964C9C /* CalculateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewModel.swift; sourceTree = "<group>"; };
 		26EDB3502AB13DA700964C9C /* JackObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackObservable.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				26218E4C2AB296FA00EC41D9 /* SimpleTableViewController.swift */,
 				266146262AB2A02200C93E4B /* NewSimpleCollectionViewController.swift */,
+				26E9B3A42AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				26F9354C2AAFF2FE005EAAC9 /* Observable.swift in Sources */,
 				26EDB3512AB13DA700964C9C /* JackObservable.swift in Sources */,
 				26F237592AAE993700D9B137 /* SceneDelegate.swift in Sources */,
+				26E9B3A52AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift in Sources */,
 				26F935502AB0015A005EAAC9 /* SampleViewModel.swift in Sources */,
 				26F9355D2AB02DAA005EAAC9 /* PhotoViewModel.swift in Sources */,
 				26EDB34F2AB13AB000964C9C /* CalculateViewModel.swift in Sources */,

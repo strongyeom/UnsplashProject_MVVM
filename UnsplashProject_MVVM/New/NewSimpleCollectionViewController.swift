@@ -87,6 +87,8 @@ class NewSimpleCollectionViewController: UIViewController {
     }
     
     private func configureDataSource() {
+        
+
  
         
         // 5️⃣ UICollectionView.CellRegistration<Cell, Item> : Cell을 등록할 수 있는 방법 iOS 14.0 이상
@@ -115,9 +117,7 @@ class NewSimpleCollectionViewController: UIViewController {
             backgroundConfig.strokeWidth = 2
             backgroundConfig.strokeColor = .systemPink
             cell.backgroundConfiguration = backgroundConfig
-            
-            
-            
+          
         }
         
         // collectionView : 어떤 클래스를 갖고 올 것인가?
@@ -128,6 +128,8 @@ class NewSimpleCollectionViewController: UIViewController {
             return cell
             
         })
+        
+
         
     }
     
