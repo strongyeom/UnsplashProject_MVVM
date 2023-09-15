@@ -11,7 +11,7 @@ import SnapKit
 //  ListConfiguration을 사용해서 CollectionCell -> TableCell 처럼 보이게 하기
 class NewSimpleCollectionViewController: UIViewController {
     
-    enum Section: Int {
+    enum Section: Int, CaseIterable {
         case first = 2000
         case second = 1
     }
@@ -42,7 +42,7 @@ class NewSimpleCollectionViewController: UIViewController {
     
     // Int: Section의 자료형
     // User: 내가 만들어 놓은 Model
-    var dataSource: UICollectionViewDiffableDataSource<Int,User>!
+    var dataSource: UICollectionViewDiffableDataSource<Section,User>!
     
     
     override func viewDidLoad() {
@@ -106,14 +106,15 @@ class NewSimpleCollectionViewController: UIViewController {
         // numberOfItemInSection 역할
         
         // NSDiffableDataSourceSnapshot<SectionIdentifierType, ItemIdentifierType>
-        var snapshot = NSDiffableDataSourceSnapshot<Int, User>()
+        // Section Enum은 고유하기 때문에 사용할 수 있음
+        var snapshot = NSDiffableDataSourceSnapshot<Section, User>()
         // Section을 하나만 쓸거고
         // appendSections 안에 들어가는것이 indexPath가 아니고 Item 배열에 담기는 종류들임
-        snapshot.appendSections([Section.first.rawValue,Section.second.rawValue])
+        snapshot.appendSections(Section.allCases)
         
         // list를 추가해 줄거야
-        snapshot.appendItems(list, toSection: Section.second.rawValue)
-        snapshot.appendItems(list2, toSection: Section.first.rawValue)
+        snapshot.appendItems(list, toSection: Section.second)
+        snapshot.appendItems(list2, toSection: Section.first)
         // View에 갱신을 해줘라
         dataSource.apply(snapshot)
    
