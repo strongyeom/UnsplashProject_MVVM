@@ -7,7 +7,10 @@
 
 import UIKit
 
-struct User {
+// Model에 Hashable 채택
+struct User: Hashable {
+    
+    let id = UUID().uuidString // Unique : name age가 같더라도 문제가 생기지 않게 처리를 해준다.
     let username: String
     let age: Int
     let height: Int
