@@ -10,10 +10,10 @@ import UIKit
 class SimpleTableViewController: UITableViewController {
     
     let list: [User] = [
-    User(username: "빛깔", age: 21),
-    User(username: "잭더리퍼", age: 23),
-    User(username: "브랜뉴", age: 26),
-    User(username: "코코", age: 20),
+    User(username: "빛깔", age: 21, height: 100),
+    User(username: "잭더리퍼", age: 23, height: 150),
+    User(username: "브랜뉴", age: 26, height: 200),
+    User(username: "코코", age: 20, height: 250),
     ]
     
     override func viewDidLoad() {

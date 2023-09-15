@@ -12,23 +12,22 @@ import SnapKit
 class NewSimpleCollectionViewController: UIViewController {
     
     let list: [User] = [
-    User(username: "빛깔", age: 21),
-    User(username: "잭더리퍼", age: 23),
-    User(username: "브랜뉴", age: 26),
-    User(username: "코코", age: 20),
+    User(username: "빛깔", age: 21, height: 100),
+    User(username: "잭더리퍼", age: 23, height: 150),
+    User(username: "브랜뉴", age: 26, height: 200),
+    User(username: "코코", age: 20, height: 250),
     ]
     
     // 1️⃣
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     // cellforRowAt에서 사용하기 위해 변수 설정
-    // 3️⃣
+    // 3️⃣ collectionView.register
     var cellResisteration: UICollectionView.CellRegistration<UICollectionViewListCell, User>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(collectionView)
-        collectionView.delegate = self
         collectionView.dataSource = self
         
         collectionView.snp.makeConstraints { make in
@@ -86,7 +85,7 @@ class NewSimpleCollectionViewController: UIViewController {
     
 }
 
-extension NewSimpleCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension NewSimpleCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return list.count
     }

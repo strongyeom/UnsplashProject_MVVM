@@ -10,6 +10,7 @@ import UIKit
 struct User {
     let username: String
     let age: Int
+    let height: Int
     
     var introduce: String {
         return  "\(username), \(age)살"
