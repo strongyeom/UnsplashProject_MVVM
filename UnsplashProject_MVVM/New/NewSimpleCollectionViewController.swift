@@ -38,7 +38,7 @@ class NewSimpleCollectionViewController: UIViewController {
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     // cellforRowAt에서 사용하기 위해 변수 설정
     // 3️⃣ collectionView.register
-    var cellResisteration: UICollectionView.CellRegistration<UICollectionViewListCell, User>!
+   // var cellResisteration: UICollectionView.CellRegistration<UICollectionViewListCell, User>!
     
     // Int: Section의 자료형
     // User: 내가 만들어 놓은 Model
@@ -57,54 +57,7 @@ class NewSimpleCollectionViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         
-        // collectionView : 어떤 클래스를 갖고 올 것인가?
-        // dataSource == CellForItemAt 과 동일한 역할을 함
-        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            
-            let cell = collectionView.dequeueConfiguredReusableCell(using: self.cellResisteration, for: indexPath, item: itemIdentifier)
-            return cell
-            
-        })
-        
-        
-        
-        
-        
-        
-        
-        // 5️⃣ UICollectionView.CellRegistration<Cell, Item> : Cell을 등록할 수 있는 방법 iOS 14.0 이상
-        // identifier, xib register 사용 X, 대신에 제네릭을 이용 셀이 생성될 때마다 클로저가 호출
-        cellResisteration =  UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
-            // cell에 대한 디자인 및 데이터처리 이뤄짐
-            // systemCell 불러오기
-            var content = UIListContentConfiguration.valueCell()
-            content.text = itemIdentifier.username
-            // textProperties: text UI 속성 설정
-            content.textProperties.color = .brown
-            content.secondaryText = "\(itemIdentifier.age)"
-            content.image = UIImage(systemName: "flame")
-            content.imageProperties.tintColor = .yellow
-            // prefersSideBySideTextAndSecondaryText : 타이틀과 서브타이틀 세로 라인으로 정렬
-            content.prefersSideBySideTextAndSecondaryText = false
-            // textToSecondaryTextVerticalPadding : 타이틀과 서브타이틀 사이의 padding 설정
-            content.textToSecondaryTextVerticalPadding = 20
-            cell.contentConfiguration = content
-            
-            
-            // Cell 자체의 background 설정을 바꿀 수 있음 
-            var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
-            backgroundConfig.backgroundColor = .lightGray
-            backgroundConfig.cornerRadius = 10
-            backgroundConfig.strokeWidth = 2
-            backgroundConfig.strokeColor = .systemPink
-            cell.backgroundConfiguration = backgroundConfig
-            
-            
-            
-        }
-        
-        // numberOfItemInSection 역할
-        
+        configureDataSource()
         // NSDiffableDataSourceSnapshot<SectionIdentifierType, ItemIdentifierType>
         // Section Enum은 고유하기 때문에 사용할 수 있음
         var snapshot = NSDiffableDataSourceSnapshot<String, User>()
@@ -121,7 +74,7 @@ class NewSimpleCollectionViewController: UIViewController {
     }
     
     // 2️⃣ collectionView 시점으로 인해 static 설정해야함
-    static func createLayout() -> UICollectionViewLayout {
+    static private func createLayout() -> UICollectionViewLayout {
         // ListConfiguration을 사용해서 Cell Layout 설정
         var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         // separator 안보이게 하기
@@ -131,6 +84,51 @@ class NewSimpleCollectionViewController: UIViewController {
         // List 형식으로 configuration을 만들어줘
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         return layout
+    }
+    
+    private func configureDataSource() {
+ 
+        
+        // 5️⃣ UICollectionView.CellRegistration<Cell, Item> : Cell을 등록할 수 있는 방법 iOS 14.0 이상
+        // identifier, xib register 사용 X, 대신에 제네릭을 이용 셀이 생성될 때마다 클로저가 호출
+        let cellResisteration =  UICollectionView.CellRegistration<UICollectionViewListCell, User>{ cell, indexPath, itemIdentifier in
+            // cell에 대한 디자인 및 데이터처리 이뤄짐
+            // systemCell 불러오기
+            var content = UIListContentConfiguration.valueCell()
+            content.text = itemIdentifier.username
+            // textProperties: text UI 속성 설정
+            content.textProperties.color = .brown
+            content.secondaryText = "\(itemIdentifier.age)"
+            content.image = UIImage(systemName: "flame")
+            content.imageProperties.tintColor = .yellow
+            // prefersSideBySideTextAndSecondaryText : 타이틀과 서브타이틀 세로 라인으로 정렬
+            content.prefersSideBySideTextAndSecondaryText = false
+            // textToSecondaryTextVerticalPadding : 타이틀과 서브타이틀 사이의 padding 설정
+            content.textToSecondaryTextVerticalPadding = 20
+            cell.contentConfiguration = content
+            
+            
+            // Cell 자체의 background 설정을 바꿀 수 있음
+            var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
+            backgroundConfig.backgroundColor = .lightGray
+            backgroundConfig.cornerRadius = 10
+            backgroundConfig.strokeWidth = 2
+            backgroundConfig.strokeColor = .systemPink
+            cell.backgroundConfiguration = backgroundConfig
+            
+            
+            
+        }
+        
+        // collectionView : 어떤 클래스를 갖고 올 것인가?
+        // dataSource == CellForItemAt 과 동일한 역할을 함
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            
+            let cell = collectionView.dequeueConfiguredReusableCell(using: cellResisteration, for: indexPath, item: itemIdentifier)
+            return cell
+            
+        })
+        
     }
     
     
