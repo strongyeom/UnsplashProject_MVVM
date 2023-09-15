@@ -19,6 +19,8 @@ class NewDiffableDataSoureExampleController: UIViewController {
     User(username: "첫번째 섹션에 사번", age: 20, height: 250)
     ]
     
+    
+    
     let customCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
     
     
@@ -44,7 +46,7 @@ class NewDiffableDataSoureExampleController: UIViewController {
         cellResisteration = UICollectionView.CellRegistration(handler: { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.valueCell()
             
-            content.text = itemIdentifier.username
+            content.text = itemIdentifier.introduce
             content.secondaryText = "\(itemIdentifier.age)"
             content.textProperties.color = .green
             content.textProperties.font = .systemFont(ofSize: 20, weight: .medium)

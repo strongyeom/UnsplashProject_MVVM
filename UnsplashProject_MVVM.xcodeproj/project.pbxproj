@@ -11,6 +11,7 @@
 		266146272AB2A02200C93E4B /* NewSimpleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266146262AB2A02200C93E4B /* NewSimpleCollectionViewController.swift */; };
 		2661462A2AB2A9CF00C93E4B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 266146292AB2A9CF00C93E4B /* SnapKit */; };
 		26E9B3A52AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9B3A42AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift */; };
+		26E9B3A82AB4355B00F2DA85 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9B3A72AB4355B00F2DA85 /* User.swift */; };
 		26EDB34D2AB139E700964C9C /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB34C2AB139E700964C9C /* CalculateViewController.swift */; };
 		26EDB34F2AB13AB000964C9C /* CalculateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB34E2AB13AB000964C9C /* CalculateViewModel.swift */; };
 		26EDB3512AB13DA700964C9C /* JackObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EDB3502AB13DA700964C9C /* JackObservable.swift */; };
@@ -39,6 +40,7 @@
 		26218E4C2AB296FA00EC41D9 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 		266146262AB2A02200C93E4B /* NewSimpleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSimpleCollectionViewController.swift; sourceTree = "<group>"; };
 		26E9B3A42AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiffableDataSoureExampleController.swift; sourceTree = "<group>"; };
+		26E9B3A72AB4355B00F2DA85 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		26EDB34C2AB139E700964C9C /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		26EDB34E2AB13AB000964C9C /* CalculateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewModel.swift; sourceTree = "<group>"; };
 		26EDB3502AB13DA700964C9C /* JackObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackObservable.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 			path = New;
 			sourceTree = "<group>";
 		};
+		26E9B3A62AB4355400F2DA85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26E9B3A72AB4355B00F2DA85 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		26EDB34B2AB139B500964C9C /* Calculate */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 		26F237552AAE993700D9B137 /* UnsplashProject_MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				26E9B3A62AB4355400F2DA85 /* Model */,
 				26F237562AAE993700D9B137 /* AppDelegate.swift */,
 				26F237582AAE993700D9B137 /* SceneDelegate.swift */,
 				26218E4B2AB296D900EC41D9 /* New */,
@@ -268,6 +279,7 @@
 				26218E4D2AB296FA00EC41D9 /* SimpleTableViewController.swift in Sources */,
 				26F9354E2AAFFDEA005EAAC9 /* SampleViewController.swift in Sources */,
 				26F935522AB00E43005EAAC9 /* LoginViewModel.swift in Sources */,
+				26E9B3A82AB4355B00F2DA85 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
