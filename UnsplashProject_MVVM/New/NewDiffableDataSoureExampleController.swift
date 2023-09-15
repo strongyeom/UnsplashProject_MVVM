@@ -24,6 +24,7 @@ class NewDiffableDataSoureExampleController: UIViewController {
     
     var cellResisteration: UICollectionView.CellRegistration<UICollectionViewCell, User>!
     
+    // 1️⃣ dataSource 생성
     var dataSource: UICollectionViewDiffableDataSource<Int,User>!
     
     
@@ -54,12 +55,15 @@ class NewDiffableDataSoureExampleController: UIViewController {
             
         })
         
+        // 2️⃣ dataSource에 등록되고 Model데이터 적용된 Cell 보여주기
         dataSource = UICollectionViewDiffableDataSource(collectionView: customCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             
             let cell = collectionView.dequeueConfiguredReusableCell(using: self.cellResisteration, for: indexPath, item: itemIdentifier)
             return cell
         })
+
         
+        // 3️⃣ apply 통해 갱신하기
         // 할당된 데이터를 snapShot에 담아준다.
         var snapShot = NSDiffableDataSourceSnapshot<Int, User>()
         snapShot.appendSections([0])
@@ -68,6 +72,7 @@ class NewDiffableDataSoureExampleController: UIViewController {
         // snapShot에 담아준 것을 리로드 시킨다.
         dataSource.apply(snapShot)
         
+   
          
     }
     
