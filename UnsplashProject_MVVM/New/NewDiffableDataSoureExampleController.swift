@@ -10,24 +10,31 @@ import SnapKit
 
 class NewDiffableDataSoureExampleController: UIViewController {
     
+    enum Section: Int,CaseIterable {
+        case first = 2000
+        case second = 1
+    }
+    
     
     // 모델의 값중 하나만 다르면 런타임 에러 발생하지 않음 but 완전히 똑같으면 런타임 에러 발생 -> UUID 만들어주기
-    let list: [User] = [
-    User(username: "첫번째 섹션에 일번", age: 23, height: 100),
+    let list: [[User]] = [
+    [User(username: "첫번째 섹션에 일번", age: 23, height: 100),
     User(username: "첫번째 섹션에 이번", age: 23, height: 100),
     User(username: "첫번째 섹션에 삼번", age: 26, height: 200),
-    User(username: "첫번째 섹션에 사번", age: 20, height: 250)
+    User(username: "첫번째 섹션에 사번", age: 20, height: 250)],
+    [User(username: "두번째222 섹션에 일번", age: 23, height: 100),
+    User(username: "두번째222 섹션에 이번", age: 23, height: 100),
+    User(username: "두번째222 섹션에 삼번", age: 26, height: 200),
+    User(username: "두번째222 섹션에 사번", age: 20, height: 250)]
     ]
-    
-    
-    
+
     let customCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
     
     
     var cellResisteration: UICollectionView.CellRegistration<UICollectionViewCell, User>!
     
     // 1️⃣ dataSource 생성
-    var dataSource: UICollectionViewDiffableDataSource<Int,User>!
+    var dataSource: UICollectionViewDiffableDataSource<Section,User>!
     
     
     override func viewDidLoad() {
@@ -67,17 +74,16 @@ class NewDiffableDataSoureExampleController: UIViewController {
         
         // 3️⃣ apply 통해 갱신하기
         // 할당된 데이터를 snapShot에 담아준다.
-        var snapShot = NSDiffableDataSourceSnapshot<Int, User>()
-        snapShot.appendSections([0])
-        snapShot.appendItems(list)
-        
+        var snapShot = NSDiffableDataSourceSnapshot<Section, User>()
+        snapShot.appendSections(Section.allCases)
+        snapShot.appendItems(list[0], toSection: Section.second)
+        snapShot.appendItems(list[1], toSection: Section.first)
         // snapShot에 담아준 것을 리로드 시킨다.
         dataSource.apply(snapShot)
         
    
          
     }
-    
     
     static func layout() -> UICollectionViewLayout {
         let configure = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
@@ -92,6 +98,7 @@ class NewDiffableDataSoureExampleController: UIViewController {
     
     
 }
+
 
 //extension NewDiffableDataSoureExampleController: UICollectionViewDataSource {
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
