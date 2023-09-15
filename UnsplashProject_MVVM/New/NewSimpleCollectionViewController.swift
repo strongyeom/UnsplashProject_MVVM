@@ -11,10 +11,25 @@ import SnapKit
 //  ListConfiguration을 사용해서 CollectionCell -> TableCell 처럼 보이게 하기
 class NewSimpleCollectionViewController: UIViewController {
     
+    enum Section: Int {
+        case first = 2000
+        case second = 1
+    }
+    
+    
+    
     // 모델의 값중 하나만 다르면 런타임 에러 발생하지 않음 but 완전히 똑같으면 런타임 에러 발생 -> UUID 만들어주기
     let list: [User] = [
     User(username: "빛깔", age: 23, height: 100),
     User(username: "빛깔", age: 23, height: 100),
+    User(username: "브랜뉴", age: 26, height: 200),
+    User(username: "코코", age: 20, height: 250),
+    ]
+    
+    // section 2에 들어갈 배열을 하나더 만들어준다.
+    let list2: [User] = [
+    User(username: "두번째 섹션", age: 23, height: 100),
+    User(username: "두번쨰 섹션", age: 23, height: 100),
     User(username: "브랜뉴", age: 26, height: 200),
     User(username: "코코", age: 20, height: 250),
     ]
@@ -28,6 +43,7 @@ class NewSimpleCollectionViewController: UIViewController {
     // Int: Section의 자료형
     // User: 내가 만들어 놓은 Model
     var dataSource: UICollectionViewDiffableDataSource<Int,User>!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,10 +108,12 @@ class NewSimpleCollectionViewController: UIViewController {
         // NSDiffableDataSourceSnapshot<SectionIdentifierType, ItemIdentifierType>
         var snapshot = NSDiffableDataSourceSnapshot<Int, User>()
         // Section을 하나만 쓸거고
-        snapshot.appendSections([0])
+        // appendSections 안에 들어가는것이 indexPath가 아니고 Item 배열에 담기는 종류들임
+        snapshot.appendSections([Section.first.rawValue,Section.second.rawValue])
         
         // list를 추가해 줄거야
-        snapshot.appendItems(list)
+        snapshot.appendItems(list, toSection: Section.second.rawValue)
+        snapshot.appendItems(list2, toSection: Section.first.rawValue)
         // View에 갱신을 해줘라
         dataSource.apply(snapshot)
    
