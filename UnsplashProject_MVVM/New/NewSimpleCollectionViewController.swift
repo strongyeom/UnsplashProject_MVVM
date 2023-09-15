@@ -42,7 +42,7 @@ class NewSimpleCollectionViewController: UIViewController {
     
     // Int: Section의 자료형
     // User: 내가 만들어 놓은 Model
-    var dataSource: UICollectionViewDiffableDataSource<Section,User>!
+    var dataSource: UICollectionViewDiffableDataSource<String,User>!
     
     
     override func viewDidLoad() {
@@ -107,14 +107,14 @@ class NewSimpleCollectionViewController: UIViewController {
         
         // NSDiffableDataSourceSnapshot<SectionIdentifierType, ItemIdentifierType>
         // Section Enum은 고유하기 때문에 사용할 수 있음
-        var snapshot = NSDiffableDataSourceSnapshot<Section, User>()
+        var snapshot = NSDiffableDataSourceSnapshot<String, User>()
         // Section을 하나만 쓸거고
         // appendSections 안에 들어가는것이 indexPath가 아니고 Item 배열에 담기는 종류들임
-        snapshot.appendSections(Section.allCases)
+        snapshot.appendSections(["고래밥", "Jack"])
         
         // list를 추가해 줄거야
-        snapshot.appendItems(list, toSection: Section.second)
-        snapshot.appendItems(list2, toSection: Section.first)
+        snapshot.appendItems(list, toSection: "고래밥")
+        snapshot.appendItems(list2, toSection: "Jack")
         // View에 갱신을 해줘라
         dataSource.apply(snapshot)
    
