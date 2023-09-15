@@ -93,7 +93,9 @@ class NewSimpleCollectionViewController: UIViewController {
         var snapshot = NSDiffableDataSourceSnapshot<Int, User>()
         // Section을 하나만 쓸거고
         snapshot.appendSections([0])
+        
         // list를 추가해 줄거야
+        snapshot.appendItems(list)
         // View에 갱신을 해줘라
         dataSource.apply(snapshot)
    
