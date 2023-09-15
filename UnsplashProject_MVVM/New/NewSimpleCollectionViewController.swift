@@ -109,7 +109,7 @@ class NewSimpleCollectionViewController: UIViewController {
         // Section Enum은 고유하기 때문에 사용할 수 있음
         var snapshot = NSDiffableDataSourceSnapshot<String, User>()
         // Section을 하나만 쓸거고
-        // appendSections 안에 들어가는것이 indexPath가 아니고 Item 배열에 담기는 종류들임
+        // appendSections 안에 들어가는것이 indexPath가 아니고 Item 배열에 담기는 종류들임 즉 데이터 기반
         snapshot.appendSections(["고래밥", "Jack"])
         
         // list를 추가해 줄거야
