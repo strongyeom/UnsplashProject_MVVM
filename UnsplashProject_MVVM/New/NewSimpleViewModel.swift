@@ -30,6 +30,10 @@ class NewSimpleViewModel {
         list.value.remove(at: index)
     }
     
+    func insertUser(name: String) {
+        list.value.insert(User(username: name, age: Int.random(in: 1...50), height: Int.random(in: 100...150)), at: Int.random(in: 0...2))
+    }
+    
     
     // section 2에 들어갈 배열을 하나더 만들어준다.
     var list2: [User] = [

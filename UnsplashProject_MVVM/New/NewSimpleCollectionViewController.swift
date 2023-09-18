@@ -38,6 +38,11 @@ class NewSimpleCollectionViewController: UIViewController {
         
         view.addSubview(collectionView)
         
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        // 네비게이션 titleView에 바로 searchBar를 넣을 수 있음 ( 굳이 레이아웃 맞추지 않아도 됨 )
+        navigationItem.titleView = searchBar
+        
         // 제거
         // collectionView.dataSource = self
         
@@ -141,7 +146,12 @@ extension NewSimpleCollectionViewController : UICollectionViewDelegate {
     }
 }
 
-
+extension NewSimpleCollectionViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.insertUser(name: searchBar.text!)
+    }
+}
 
 //extension NewSimpleCollectionViewController: UICollectionViewDataSource {
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
