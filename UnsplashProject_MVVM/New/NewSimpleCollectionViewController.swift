@@ -50,7 +50,7 @@ class NewSimpleCollectionViewController: UIViewController {
         
     
         
-        
+        collectionView.delegate = self
         viewModel.list.bind { user in
             self.updateSnapshot()
         }
@@ -132,13 +132,16 @@ class NewSimpleCollectionViewController: UIViewController {
             return cell
             
         })
-        
-
-        
     }
-    
-    
 }
+
+extension NewSimpleCollectionViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.removeUser(index: indexPath.item)
+    }
+}
+
+
 
 //extension NewSimpleCollectionViewController: UICollectionViewDataSource {
 //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

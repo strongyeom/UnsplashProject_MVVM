@@ -26,6 +26,10 @@ class NewSimpleViewModel {
         list.value = []
     }
     
+    func removeUser(index : Int) {
+        list.value.remove(at: index)
+    }
+    
     
     // section 2에 들어갈 배열을 하나더 만들어준다.
     var list2: [User] = [
