@@ -24,9 +24,17 @@ class PhotoViewController: UIViewController {
         navigationItem.titleView = searchBar
         collectionView.collectionViewLayout = createLayout()
         configureDataSource()
- 
+        viewModel.list.bind { _ in
+            self.updateSnapshot()
+        }
     }
 
+    private func updateSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, PhotoResult>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(viewModel.list.value.results!)
+        dataSource.apply(snapshot)
+    }
     
    
     private func createLayout() -> UICollectionViewLayout {
