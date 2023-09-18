@@ -10,6 +10,7 @@
 		26218E4D2AB296FA00EC41D9 /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26218E4C2AB296FA00EC41D9 /* SimpleTableViewController.swift */; };
 		266146272AB2A02200C93E4B /* NewSimpleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266146262AB2A02200C93E4B /* NewSimpleCollectionViewController.swift */; };
 		26E41A452AB7D342004AEF2B /* NumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E41A442AB7D342004AEF2B /* NumberViewController.swift */; };
+		26E41A472AB7D935004AEF2B /* NumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E41A462AB7D935004AEF2B /* NumberViewModel.swift */; };
 		26E9B3A52AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9B3A42AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift */; };
 		26E9B3A82AB4355B00F2DA85 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9B3A72AB4355B00F2DA85 /* User.swift */; };
 		26E9B3AF2AB43F5100F2DA85 /* NewPhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E9B3AE2AB43F5100F2DA85 /* NewPhotoViewModel.swift */; };
@@ -42,6 +43,7 @@
 		26218E4C2AB296FA00EC41D9 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 		266146262AB2A02200C93E4B /* NewSimpleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSimpleCollectionViewController.swift; sourceTree = "<group>"; };
 		26E41A442AB7D342004AEF2B /* NumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewController.swift; sourceTree = "<group>"; };
+		26E41A462AB7D935004AEF2B /* NumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberViewModel.swift; sourceTree = "<group>"; };
 		26E9B3A42AB42BD800F2DA85 /* NewDiffableDataSoureExampleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDiffableDataSoureExampleController.swift; sourceTree = "<group>"; };
 		26E9B3A72AB4355B00F2DA85 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		26E9B3AE2AB43F5100F2DA85 /* NewPhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhotoViewModel.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				26F9354D2AAFFDEA005EAAC9 /* SampleViewController.swift */,
 				26F9354F2AB0015A005EAAC9 /* SampleViewModel.swift */,
 				26E41A442AB7D342004AEF2B /* NumberViewController.swift */,
+				26E41A462AB7D935004AEF2B /* NumberViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				26EDB34F2AB13AB000964C9C /* CalculateViewModel.swift in Sources */,
 				26218E4D2AB296FA00EC41D9 /* SimpleTableViewController.swift in Sources */,
 				26F9354E2AAFFDEA005EAAC9 /* SampleViewController.swift in Sources */,
+				26E41A472AB7D935004AEF2B /* NumberViewModel.swift in Sources */,
 				26F935522AB00E43005EAAC9 /* LoginViewModel.swift in Sources */,
 				26E9B3A82AB4355B00F2DA85 /* User.swift in Sources */,
 			);
