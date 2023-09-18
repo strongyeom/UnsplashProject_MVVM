@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NumberViewController: UITabBarController {
+class NumberViewController: UIViewController {
 
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
