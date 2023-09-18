@@ -31,6 +31,7 @@ class RandomPhotoViewController: UIViewController {
         
         settup()
         unsplashCollectionView.prefetchDataSource = self
+        unsplashCollectionView.delegate = self
         viewModel.fetchRequest(page: page)
         
         configureDataSourece()
@@ -107,6 +108,20 @@ extension RandomPhotoViewController: UICollectionViewDataSourcePrefetching {
     
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         print("===== cancelPrefetchingForItemsAt")
+    }
+}
+
+extension RandomPhotoViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        // Cell 클릭시 해당 데이터 뽑아보기
+//        guard let selectedCell = dataSource.itemIdentifier(for: indexPath) else {
+//            return
+//        }
+//        print(selectedCell)
+        
+        // 삭제 메서드
+        viewModel.removeData(selectedCell: indexPath.item)
     }
 }
 

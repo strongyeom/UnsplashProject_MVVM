@@ -19,4 +19,9 @@ class RandomPhotoViewModel {
             }
         }
     }
+    
+    func removeData(selectedCell: Int) {
+        self.list.value.remove(at: selectedCell)
+        
+    }
 }
