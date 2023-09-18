@@ -19,7 +19,7 @@ class NewSimpleCollectionViewController: UIViewController {
     
     
     // 모델의 값중 하나만 다르면 런타임 에러 발생하지 않음 but 완전히 똑같으면 런타임 에러 발생 -> UUID 만들어주기
-    let list: [User] = [
+    var list: [User] = [
         User(username: "빛깔", age: 23, height: 100),
         User(username: "빛깔", age: 23, height: 100),
         User(username: "브랜뉴", age: 26, height: 200),
@@ -27,7 +27,7 @@ class NewSimpleCollectionViewController: UIViewController {
     ]
     
     // section 2에 들어갈 배열을 하나더 만들어준다.
-    let list2: [User] = [
+    var list2: [User] = [
         User(username: "두번째 섹션", age: 23, height: 100),
         User(username: "두번쨰 섹션", age: 23, height: 100),
         User(username: "브랜뉴", age: 26, height: 200),
@@ -45,6 +45,8 @@ class NewSimpleCollectionViewController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<String,User>!
     
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,6 +60,19 @@ class NewSimpleCollectionViewController: UIViewController {
         }
         
         configureDataSource()
+        updateSnapshot()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            // 배열에 새로운 값 추가하기
+            self.list.insert(User(username: "뽀로로", age: 0, height: 0), at: 2)
+            self.list.remove(at: 1)
+            // 데이터에 변화가 있다면 updateSnapshot 호출
+            self.updateSnapshot()
+        }
+   
+    }
+    
+    func updateSnapshot() {
         // NSDiffableDataSourceSnapshot<SectionIdentifierType, ItemIdentifierType>
         // Section Enum은 고유하기 때문에 사용할 수 있음
         var snapshot = NSDiffableDataSourceSnapshot<String, User>()
@@ -70,7 +85,6 @@ class NewSimpleCollectionViewController: UIViewController {
         snapshot.appendItems(list2, toSection: "Jack")
         // View에 갱신을 해줘라
         dataSource.apply(snapshot)
-   
     }
     
     // 2️⃣ collectionView 시점으로 인해 static 설정해야함
