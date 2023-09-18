@@ -37,6 +37,7 @@ class NewDiffableDataSoureExampleController: UIViewController {
 
         
         newPhotoViewModel.list.bind { _ in
+            print(Thread.isMainThread)
             DispatchQueue.main.async {
                 self.dataSourceApply()
             }
@@ -45,7 +46,7 @@ class NewDiffableDataSoureExampleController: UIViewController {
         newPhotoViewModel.callRequest(query: "sky")
         
         configureView()
-        dataSourceApply()
+       // dataSourceApply()
 
 
          

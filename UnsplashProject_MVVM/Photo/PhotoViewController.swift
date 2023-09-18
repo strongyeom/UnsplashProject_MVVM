@@ -25,6 +25,7 @@ class PhotoViewController: UIViewController {
         collectionView.collectionViewLayout = createLayout()
         configureDataSource()
         viewModel.list.bind { _ in
+            print("PhotoVC",Thread.isMainThread)
             self.updateSnapshot()
         }
     }

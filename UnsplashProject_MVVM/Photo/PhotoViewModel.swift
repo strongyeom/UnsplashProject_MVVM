@@ -10,9 +10,10 @@ import Foundation
 class PhotoViewModel {
     
     var list = Observable(Photo(total: 0, total_pages: 0, results: []))
-    
+   
     func callRequest(text: String) {
         APIService.shared.searchPhoto(query: text) { photo in
+            print(Thread.isMainThread)
             DispatchQueue.main.async {
                 guard let photo else { return }
                 self.list.value = photo
