@@ -9,51 +9,67 @@ import UIKit
 
 class PhotoViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
 
     var viewModel = PhotoViewModel()
     
+    var dataSource: UICollectionViewDiffableDataSource<Int, PhotoResult>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = 80
-        viewModel.callRequest()
         
-        viewModel.list.bind { _ in
-            // 메인쓰레드에서 하는 이유 : 데이터 통신이 비동기로 작업하기 때문에 UI를 다시 그릴때는 메인 쓰레드에서 그려줘야함
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
+        collectionView.collectionViewLayout = createLayout()
+        configureDataSource()
+ 
+    }
+
+    
+   
+    private func createLayout() -> UICollectionViewLayout {
+        // ListConfiguration을 사용해서 Cell Layout 설정
+        var configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        // separator 안보이게 하기
+        configuration.showsSeparators = false
+        // collectionView backgroundColor 설정
+        configuration.backgroundColor = .systemGreen
+        // List 형식으로 configuration을 만들어줘
+        let layout = UICollectionViewCompositionalLayout.list(using: configuration)
+        return layout
+    }
+    
+    
+    private func configureDataSource() {
+        
+        let cellRegisteration = UICollectionView.CellRegistration<UICollectionViewCell, PhotoResult> { cell, indexPath, itemIdentifier in
+            var content = UIListContentConfiguration.valueCell()
+            content.text = "\(itemIdentifier.likes)"
+            
+            // 이미지 -> 데이터 ->
+            
+            DispatchQueue.global().async {
+                let url = URL(string: itemIdentifier.urls.thumb)!
+                let data = try! Data(contentsOf: url)
+                DispatchQueue.main.async {
+                    content.image = UIImage(data: data)
+                    // 시점응 위해 DispatchQueue.main.async 안에서 적용한다.
+                    cell.contentConfiguration = content
+                }
             }
         }
         
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegisteration, for: indexPath, item: itemIdentifier)
+            return cell
+        })
     }
 }
-extension PhotoViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInSection
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoTableViewCell", for: indexPath) as! PhotoTableViewCell
+
+extension PhotoViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-//        cell.imageView?.image = UIImage(systemName: "flame")
-        let data = viewModel.cellForRowAt(indexPath: indexPath)
-        
-        let unsplashurl = URL(string: data.urls.thumb)!
-        // 비동기로 작업
-        DispatchQueue.global().async {
-            // 이미지 주소 Data화 시키기
-            let data = try! Data(contentsOf: unsplashurl)
-            
-            // Main Thread에서 그려주기
-            DispatchQueue.main.async {
-                // 데이터 통신 해서 image에 넣기
-                cell.photoImage.image = UIImage(data: data)
-                print("**\(indexPath.row)")
-            }
-        }
-        return cell
     }
-    
 }
