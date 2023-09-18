@@ -78,6 +78,6 @@ class PhotoViewController: UIViewController {
 
 extension PhotoViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        viewModel.callRequest(text: searchBar.text!)
     }
 }
