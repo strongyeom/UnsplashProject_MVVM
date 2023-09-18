@@ -17,22 +17,8 @@ class NewSimpleCollectionViewController: UIViewController {
     }
     
     
-    
-    // 모델의 값중 하나만 다르면 런타임 에러 발생하지 않음 but 완전히 똑같으면 런타임 에러 발생 -> UUID 만들어주기
-    var list: [User] = [
-        User(username: "빛깔", age: 23, height: 100),
-        User(username: "빛깔", age: 23, height: 100),
-        User(username: "브랜뉴", age: 26, height: 200),
-        User(username: "코코", age: 20, height: 250),
-    ]
-    
-    // section 2에 들어갈 배열을 하나더 만들어준다.
-    var list2: [User] = [
-        User(username: "두번째 섹션", age: 23, height: 100),
-        User(username: "두번쨰 섹션", age: 23, height: 100),
-        User(username: "브랜뉴", age: 26, height: 200),
-        User(username: "코코", age: 20, height: 250),
-    ]
+    var viewModel = NewSimpleViewModel()
+
     
     // 1️⃣
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
@@ -62,13 +48,17 @@ class NewSimpleCollectionViewController: UIViewController {
         configureDataSource()
         updateSnapshot()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            // 배열에 새로운 값 추가하기
-            self.list.insert(User(username: "뽀로로", age: 0, height: 0), at: 2)
-            self.list.remove(at: 1)
-            // 데이터에 변화가 있다면 updateSnapshot 호출
+    
+        
+        
+        viewModel.list.bind { user in
             self.updateSnapshot()
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.viewModel.append()
+        }
+        
    
     }
     
@@ -81,8 +71,8 @@ class NewSimpleCollectionViewController: UIViewController {
         snapshot.appendSections(["고래밥", "Jack"])
         
         // list를 추가해 줄거야
-        snapshot.appendItems(list, toSection: "고래밥")
-        snapshot.appendItems(list2, toSection: "Jack")
+        snapshot.appendItems(viewModel.list.value, toSection: "고래밥")
+        snapshot.appendItems(viewModel.list2, toSection: "Jack")
         // View에 갱신을 해줘라
         dataSource.apply(snapshot)
     }
