@@ -142,7 +142,16 @@ class NewSimpleCollectionViewController: UIViewController {
 
 extension NewSimpleCollectionViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.removeUser(index: indexPath.item)
+       // viewModel.removeUser(index: indexPath.item)
+        
+        // Cell 클릭했을때 indexPath 기반으로 가져오기 - DiffableDataSource 활용 과제가 나왔을때는 사용하면 런타임 에러게 발생할 여지가 있음
+        // let user = viewModel.list.value[indexPath.item] ❌
+        
+        // Cell 클릭했을때 ⭐️데이터 기반으로⭐️ 가져오기
+        guard let item = dataSource.itemIdentifier(for: indexPath) else {
+            return
+        }
+        dump(item)
     }
 }
 
