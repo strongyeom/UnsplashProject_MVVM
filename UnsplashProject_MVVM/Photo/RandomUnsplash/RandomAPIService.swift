@@ -15,9 +15,9 @@ class RandomAPIService {
     private init() { }
     
     
-    func callRequest(completionHandler: @escaping ([RandomPhoto]) -> Void) {
+    func callRequest(page: Int, completionHandler: @escaping ([RandomPhoto]) -> Void) {
         
-        let url = URL(string: "https://api.unsplash.com/photos/random?client_id=R87kkJUhEVTR_QPQo8pQOj7Q7sgWnUP8gTE8h0yOHB0&count=10")!
+        let url = URL(string: "https://api.unsplash.com/photos/random?client_id=R87kkJUhEVTR_QPQo8pQOj7Q7sgWnUP8gTE8h0yOHB0&count=10&page=\(page)")!
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error {

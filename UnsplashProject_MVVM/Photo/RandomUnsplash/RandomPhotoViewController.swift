@@ -23,12 +23,16 @@ class RandomPhotoViewController: UIViewController {
     let unsplashCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
     
     var dataSource: UICollectionViewDiffableDataSource<Int, RandomPhoto>!
+    
+    var page: Int = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         settup()
-        viewModel.fetchRequest()
+        unsplashCollectionView.prefetchDataSource = self
+        viewModel.fetchRequest(page: page)
+        
         configureDataSourece()
         
         button.addTarget(self, action: #selector(btnClicked), for: .touchUpInside)
@@ -85,8 +89,25 @@ class RandomPhotoViewController: UIViewController {
         snapshot.appendItems(viewModel.list.value)
         dataSource.apply(snapshot)
     }
+}
+
+extension RandomPhotoViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+        // 응답 메세지로 page에 대한 값이 정해져 있다면 조건을 추가해준다.
+        // 또한 마지막 페이지가 나오면 더이상 page를 증가시키지 않는다.
+        for indexPath in indexPaths {
+            
+            if viewModel.list.value.count - 1 == indexPath.item {
+                page += 1
+                viewModel.fetchRequest(page: page)
+            }
+        }
+    }
     
-    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        print("===== cancelPrefetchingForItemsAt")
+    }
 }
 
 extension RandomPhotoViewController {

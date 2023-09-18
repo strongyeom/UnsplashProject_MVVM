@@ -10,12 +10,12 @@ import Foundation
 class RandomPhotoViewModel {
     
     
-    var list =  Observable<[RandomPhoto]>([])
+    var list = Observable<[RandomPhoto]>([])
     
-    func fetchRequest() {
-        RandomAPIService.shared.callRequest { photo in
+    func fetchRequest(page: Int) {
+        RandomAPIService.shared.callRequest(page: page) { photo in
             DispatchQueue.main.async {
-                self.list.value = photo
+                self.list.value.append(contentsOf: photo)
             }
         }
     }
