@@ -28,7 +28,7 @@ class NewSimpleCollectionViewController: UIViewController {
     
     // Int: Section의 자료형
     // User: 내가 만들어 놓은 Model
-    var dataSource: UICollectionViewDiffableDataSource<String,User>!
+    var dataSource: UICollectionViewDiffableDataSource<String, User>!
     
     
 
@@ -77,7 +77,7 @@ class NewSimpleCollectionViewController: UIViewController {
         
         // list를 추가해 줄거야
         snapshot.appendItems(viewModel.list.value, toSection: "고래밥")
-        snapshot.appendItems(viewModel.list2, toSection: "Jack")
+        snapshot.appendItems(viewModel.list.value, toSection: "Jack")
         // View에 갱신을 해줘라
         dataSource.apply(snapshot)
     }
@@ -117,7 +117,7 @@ class NewSimpleCollectionViewController: UIViewController {
             // textToSecondaryTextVerticalPadding : 타이틀과 서브타이틀 사이의 padding 설정
             content.textToSecondaryTextVerticalPadding = 20
             cell.contentConfiguration = content
-            
+        
             
             // Cell 자체의 background 설정을 바꿀 수 있음
             var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
@@ -141,6 +141,7 @@ class NewSimpleCollectionViewController: UIViewController {
 }
 
 extension NewSimpleCollectionViewController : UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        // viewModel.removeUser(index: indexPath.item)
         

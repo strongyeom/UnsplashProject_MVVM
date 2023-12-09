@@ -27,6 +27,11 @@ class SimpleTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+//        let cell = UITableViewCell()
+//        var content = cell.defaultContentConfiguration()
+//        content.text = list[indexPath.row].username
+//        content.secondaryText = "\(list[indexPath.row].age)"
+//        cell.contentConfiguration = content
         let cell = UITableViewCell()
         var content = cell.defaultContentConfiguration()
         content.text = list[indexPath.row].username
